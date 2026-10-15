@@ -1,0 +1,163 @@
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 20;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  max-height: 340px;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-top-color: var(--accent);
+  background: var(--bg);
+  animation: drop 120ms var(--ease-out);
+}
+
+.search {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.prompt {
+  flex: none;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-bright);
+  caret-color: var(--accent);
+  font-size: 14px;
+}
+
+.searchInput::placeholder {
+  color: var(--text-faint);
+  opacity: 1;
+}
+
+.searchInput:focus-visible {
+  outline: none;
+}
+
+.list {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 4px 0;
+  overflow-y: auto;
+  list-style: none;
+  overscroll-behavior: contain;
+  scroll-padding-block: 4px;
+  scrollbar-color: var(--line-strong) transparent;
+  scrollbar-width: thin;
+}
+
+.list:empty {
+  display: none;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 12px 7px 10px;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+}
+
+.option[aria-selected='true'] {
+  border-left-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+.name {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.symbol {
+  overflow: hidden;
+  color: var(--text-bright);
+  font-size: 13px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.price,
+.worth {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.holding {
+  display: grid;
+  justify-items: end;
+}
+
+.balance {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.check {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+  visibility: hidden;
+}
+
+.option[data-current] .check {
+  visibility: visible;
+}
+
+.empty {
+  flex: 1;
+  margin: 0;
+  padding: 20px 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (pointer: coarse) {
+  .searchInput {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 840px) {
+  .dropdown {
+    right: 0;
+    left: auto;
+    width: min(320px, calc(100vw - 64px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dropdown {
+    animation: none;
+  }
+}
+
+@keyframes drop {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}

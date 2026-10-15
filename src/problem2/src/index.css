@@ -1,0 +1,86 @@
+:root {
+  color-scheme: dark;
+
+  --bg: #060606;
+  --surface: #0a0a0a;
+  --surface-raised: #101010;
+  --surface-hover: #171717;
+  --line: #222222;
+  --line-strong: #2e2e2e;
+  --text: #d6d6d6;
+  --text-bright: #f2f2f2;
+  --text-muted: #8c8c8c;
+  --text-faint: #5c5c5c;
+  --accent: #ffb000;
+  --accent-hover: #ffc233;
+  --accent-ink: #000000;
+  --accent-soft: rgb(255 176 0 / 0.1);
+  --accent-glow: rgb(255 176 0 / 0.22);
+  --ok: #3ad07a;
+  --danger: #ff5a4f;
+  --danger-soft: rgb(255 90 79 / 0.08);
+  --danger-line: rgb(255 90 79 / 0.6);
+  --skeleton: #141414;
+  --skeleton-pulse: #1d1d1d;
+  --selection: rgb(255 176 0 / 0.3);
+
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  --ticker-height: 32px;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--line-strong) var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input {
+  border-radius: 0;
+  color: inherit;
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--text-bright);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

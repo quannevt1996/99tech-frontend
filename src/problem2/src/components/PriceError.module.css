@@ -1,0 +1,53 @@
+.body {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  padding: 24px 16px 20px;
+}
+
+.title {
+  margin: 0;
+  color: var(--danger);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.text {
+  max-width: 46ch;
+  margin: 0 0 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.retry {
+  height: 32px;
+  margin-left: -8px;
+  padding: 0 8px;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.retry::before {
+  content: '[';
+  content: '[' / '';
+}
+
+.retry::after {
+  content: ']';
+  content: ']' / '';
+}
+
+.retry:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+}

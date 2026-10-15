@@ -1,0 +1,219 @@
+.fieldset {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.panels {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1px;
+  background: var(--line);
+}
+
+.flip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition:
+    color 120ms ease,
+    border-color 120ms ease,
+    background-color 120ms ease;
+}
+
+.flip:hover:enabled {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.flip:active:enabled {
+  background: var(--accent-soft);
+}
+
+.flip:disabled {
+  color: var(--text-faint);
+  cursor: default;
+}
+
+.flipIcon {
+  width: 16px;
+  height: 16px;
+  transition: transform 360ms var(--ease-out);
+}
+
+.rate {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 40px;
+  padding: 0 14px 0 16px;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.rate:hover:enabled {
+  background: var(--surface-hover);
+}
+
+.rate:focus-visible {
+  outline-offset: -2px;
+}
+
+.rate:disabled {
+  cursor: default;
+}
+
+.rateLabel {
+  flex: none;
+  color: var(--text-faint);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rateValue {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ratePrice {
+  flex: none;
+  color: var(--text-faint);
+}
+
+.rateIcon {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  color: var(--text-faint);
+  transition: color 120ms ease;
+}
+
+.rate:hover:enabled .rateIcon {
+  color: var(--accent);
+}
+
+.submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: calc(100% - 24px);
+  height: 48px;
+  margin: 12px;
+  padding: 0 16px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    color 120ms ease;
+}
+
+.submit:hover:enabled {
+  border-color: var(--accent-hover);
+  background: var(--accent-hover);
+}
+
+.submit:focus-visible {
+  box-shadow: 0 0 0 5px var(--accent-glow);
+}
+
+.submit:disabled {
+  border-color: var(--line-strong);
+  background: none;
+  color: var(--text-faint);
+  cursor: not-allowed;
+}
+
+.submit[data-status='insufficient'] {
+  border-color: var(--danger-line);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.submit[data-status='submitting'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  cursor: progress;
+}
+
+.hint {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 18px;
+  padding: 0 4px 2px;
+  border: 1px solid currentColor;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.cursor {
+  width: 0.62em;
+  height: 1.2em;
+  margin-left: -6px;
+  background: currentColor;
+  animation: blink 1s steps(1) infinite;
+}
+
+@media (max-width: 400px) {
+  .rate {
+    padding-inline: 12px;
+  }
+
+  .ratePrice {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flipIcon {
+    transition: none;
+  }
+
+  .cursor {
+    animation: none;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

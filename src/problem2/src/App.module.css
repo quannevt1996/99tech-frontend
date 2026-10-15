@@ -1,0 +1,84 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 48px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-bright);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mark {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+}
+
+.wallet {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 26px;
+  padding: 0 10px;
+  border: 1px solid var(--line-strong);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.walletDot {
+  width: 6px;
+  height: 6px;
+  background: var(--ok);
+}
+
+.tickerSlot {
+  min-height: var(--ticker-height);
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(24px, 8vh, 80px) 16px 48px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 20px;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text-faint);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 400px) {
+  .header,
+  .footer {
+    padding-inline: 16px;
+  }
+}
